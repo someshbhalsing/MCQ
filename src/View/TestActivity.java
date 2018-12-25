@@ -14,8 +14,10 @@ public class TestActivity {
 
     private TestActivity() {
         frame = new JFrame();
-        frame.setBounds(0, 0, 1366, 768);
         frame.setLayout(new BorderLayout());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true);
     }
 
     public static TestActivity getInstance() {
@@ -28,7 +30,7 @@ public class TestActivity {
     }
 
     public void displayTimer() {
-        mTimerPanel = new TimerPanel(30, () -> {
+        mTimerPanel = new TimerPanel(1, () -> {
             JOptionPane.showMessageDialog(frame.getParent(), "Test has ended");
         });
         frame.getContentPane().add(mTimerPanel, BorderLayout.PAGE_START);
