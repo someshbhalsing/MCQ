@@ -14,7 +14,7 @@ public class TestActivity {
 
     private TestActivity() {
         frame = new JFrame();
-        frame.setBounds(0, 0, 1366, 768);
+        frame.setBounds(0, 0, 1366, 769);
         frame.setLayout(new BorderLayout());
     }
 
