@@ -17,7 +17,7 @@ public class TimerPanel extends JPanel {
         timerLabel = new JLabel(remainingTime());
         timerLabel.setFont(new Font("Serif", Font.PLAIN, 32));
         timerLabel.setOpaque(true);
-        timerLabel.setBackground(Color.green);
+        timerLabel.setForeground(Color.green);
         mTimer = new Timer(1000, e -> {
             seconds--;
             timerLabel.setText(remainingTime());
