@@ -1,21 +1,23 @@
 package View;
 
+import Model.QuestionTest;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class TestActivity {
 
     private static TestActivity ourInstance = new TestActivity();
-    private String title;
     private JFrame frame;
     private TimerPanel mTimerPanel;
     private QuestionPanel mQuestionPanel;
     private ControllerPanel mControllerPanel;
+    private BottomControllerPanel mBottomControllerPanel;
 
     private TestActivity() {
         frame = new JFrame();
         frame.setBounds(0, 0, 1366, 768);
-        frame.setLayout(new BorderLayout());
+        frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true);
@@ -28,18 +30,52 @@ public class TestActivity {
     public static void main(String[] args) {
         TestActivity activity = TestActivity.getInstance();
         activity.displayTimer();
+        activity.displayQuestionPanel();
+        activity.displayBottomController();
     }
 
     public void displayTimer() {
-        mTimerPanel = new TimerPanel(30, new TimerCallbackEvents() {
+        mTimerPanel = new TimerPanel(1, () -> JOptionPane.showMessageDialog(frame.getParent(), "Test has ended"));
+        mTimerPanel.setBounds(1366 - 300, 0, 295, 75);
+        mTimerPanel.setBackground(Color.white);
+        frame.getContentPane().add(mTimerPanel);
+        mTimerPanel.start();
+
+    }
+
+    public void displayQuestionPanel() {
+        mQuestionPanel = new QuestionPanel(QuestionTest.questionList());
+        mQuestionPanel.setBounds(1366 - 800, 80, 795, 578);
+        mQuestionPanel.setBackground(Color.white);
+        frame.getContentPane().add(mQuestionPanel);
+
+        frame.setVisible(true);
+    }
+
+    public void displayBottomController() {
+        mBottomControllerPanel = new BottomControllerPanel(new BottomControllerCallbackEvents() {
             @Override
-            public void timeFinished() {
-                JOptionPane.showMessageDialog(frame.getParent(), "Test has ended");
+            public void first() {
+                mQuestionPanel.seek(0);
+            }
+
+            @Override
+            public void last() {
+                mQuestionPanel.seek(QuestionTest.questionList().size() - 1);
+            }
+
+            @Override
+            public void next() {
+                mQuestionPanel.next();
+            }
+
+            @Override
+            public void prev() {
+                mQuestionPanel.prev();
             }
         });
-        frame.getContentPane().add(mTimerPanel, BorderLayout.PAGE_START);
-        mTimerPanel.start();
-        frame.pack();
+        mBottomControllerPanel.setBounds(1366 - 800, 668, 795, 90);
+        frame.getContentPane().add(mBottomControllerPanel);
         frame.setVisible(true);
     }
 
