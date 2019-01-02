@@ -35,7 +35,12 @@ public class TestActivity {
     }
 
     public void displayTimer() {
-        mTimerPanel = new TimerPanel(1, () -> JOptionPane.showMessageDialog(frame.getParent(), "Test has ended"));
+        mTimerPanel = new TimerPanel(1, () -> {
+            mQuestionPanel.setVisible(false);
+            mBottomControllerPanel.setVisible(false);
+            mTimerPanel.setVisible(false);
+            JOptionPane.showMessageDialog(frame.getParent(), "The test has ended");
+        });
         mTimerPanel.setBounds(1366 - 300, 0, 295, 75);
         mTimerPanel.setBackground(Color.white);
         frame.getContentPane().add(mTimerPanel);

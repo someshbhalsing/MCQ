@@ -1,6 +1,7 @@
 package View
 
 import Model.Question
+import sun.reflect.generics.reflectiveObjects.NotImplementedException
 import java.awt.Color
 import java.awt.Font
 import javax.swing.*
@@ -75,12 +76,8 @@ class QuestionPanel(private val mQuestionList: List<Question>) : JPanel() {
     }
 
     fun update(): Question {
-        when {
-            opt1.isSelected -> mQuestionList[currentQuestion].mMarkedAnswer = mQuestionList[currentQuestion].mOptions[0]
-            opt2.isSelected -> mQuestionList[currentQuestion].mMarkedAnswer = mQuestionList[currentQuestion].mOptions[1]
-            opt3.isSelected -> mQuestionList[currentQuestion].mMarkedAnswer = mQuestionList[currentQuestion].mOptions[2]
-            opt4.isSelected -> mQuestionList[currentQuestion].mMarkedAnswer = mQuestionList[currentQuestion].mOptions[3]
-        }
+        throw NotImplementedException()
+        TODO("INSERT UPDATE METHOD WHICH CAN SAVE THE MARKED ANSWER TO THE EXISTING LIST OF QUESTIONS AND RETURN THE UPDATED QUESTION SO THAT CHANGES CAN BE MADE TO SAVE THE CURRENT INSTANCE")
         return mQuestionList[currentQuestion]
     }
 
