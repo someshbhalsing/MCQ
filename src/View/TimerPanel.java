@@ -30,7 +30,7 @@ public class TimerPanel extends JPanel {
 
     }
 
-    public String remainingTime() {
+    private String remainingTime() {
         int minute = seconds / 60;
         int second = seconds % 60;
         String time = "";

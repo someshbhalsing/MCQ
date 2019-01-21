@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Multiple Choice Questions:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Multiple_Choice_Questions_jar</output-path>
+    <root id="archive" name="Multiple Choice Questions.jar">
+      <element id="module-output" name="Multiple Choice Questions" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/mysql-connector-java-5.1.41-bin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$KOTLIN_BUNDLED$/lib/kotlin-stdlib.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$KOTLIN_BUNDLED$/lib/kotlin-reflect.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$KOTLIN_BUNDLED$/lib/kotlin-test.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$KOTLIN_BUNDLED$/lib/kotlin-stdlib-jdk7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$KOTLIN_BUNDLED$/lib/kotlin-stdlib-jdk8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

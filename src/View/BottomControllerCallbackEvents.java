@@ -1,6 +1,6 @@
 package View;
 
-public interface BottomControllerCallbackEvents {
+interface BottomControllerCallbackEvents {
     void first();
 
     void last();
@@ -8,4 +8,6 @@ public interface BottomControllerCallbackEvents {
     void next();
 
     void prev();
+
+    void submit();
 }

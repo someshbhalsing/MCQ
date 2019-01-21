@@ -1,3 +1,3 @@
 package Model
 
-class Answer(private val mId: Int, val mOption: String)
+class Answer(val mId: Int, val mOption: String)

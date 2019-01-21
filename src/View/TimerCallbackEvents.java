@@ -1,5 +1,5 @@
 package View;
 
-public interface TimerCallbackEvents {
+interface TimerCallbackEvents {
     void timeFinished();
 }
